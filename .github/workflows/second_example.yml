@@ -8,5 +8,7 @@ jobs:
               uses: actions/checkout@v6
 
             - name: Executing Shell script
-              run: ./Ascii_shell.sh
+              run: 
+                chmod +x ./Ascii_shell.sh
+                ./Ascii_shell.sh
 
