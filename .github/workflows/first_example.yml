@@ -12,3 +12,6 @@ jobs:
                   echo "Hello, We are learning Github Actions"
                   ls
                   cat README.md
+
+            - name: Generate ASCII artwork
+              run: cowsay -f dragon "Here the dragon comes" >> dragon.txt
