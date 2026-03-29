@@ -1,0 +1,47 @@
+name: My third workflow
+on: [push]
+jobs:
+  build_job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install COwsay program
+        run: sudo apt-get install -y cowsay
+
+      - name: Execute COwsay
+        run: cowsay -f dragon "Hello from the dragon!" >> dragon.txt
+
+      - name: Upload Dragon text file
+        uses: actions/upload-artifact@v4
+        with:
+          name: dragon-txt-file
+          path: dragon.txt
+
+      - name: Sleep for 10 seconds
+        run: sleep 10
+
+  test_job2:
+    needs: build_job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Dragon text file
+        uses: actions/download-artifact@v5
+        with:
+          name: dragon-txt-file
+
+      - name: Test file exists
+        run: grep -i "dragon" dragon.txt
+
+  deploy_job3:
+    needs: test_job2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Dragon text file
+        uses: actions/download-artifact@v5
+        with:
+          name: dragon-txt-file
+          
+      - name: Read File
+        run: cat dragon.txt
+
+      - name: Deploy
+        run: echo "Deploying the dragon message!"
