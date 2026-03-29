@@ -14,7 +14,7 @@ jobs:
               run: cowsay -f dragon "Here the dragon comes" >> dragon.txt
 
             - name: Test if the file exists or not
-              run: grep -i "dragon.txt"
+              run: grep -i "dragon" dragon.txt
 
             - name: Read the file
               run: cat dragon.txt
