@@ -6,12 +6,9 @@ jobs:
         steps:
             - name: Checkout code
               uses: actions/checkout@v6
-              
+
             - name: Wecome message
-              run: echo "Hello, We are learning Github Actions"
-
-            - name: List all the files
-              run: ls
-
-            - name: Read the file
-              run: cat README.md
+              run: |
+                  echo "Hello, We are learning Github Actions"
+                  ls
+                  cat README.md
