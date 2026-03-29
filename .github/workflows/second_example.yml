@@ -1,0 +1,20 @@
+name: My Second workflow
+on: [push]
+jobs:
+    ascii_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v6
+
+            - name: Install cowsay
+              run: sudo apt-get install -y cowsay
+
+            - name: Generate ASCII artwork
+              run: cowsay -f dragon "Here the dragon comes" >> dragon.txt
+
+            - name: Test if the file exists or not
+              run: grep -i "dragon.txt"
+
+            - name: Read the file
+              run: cat dragon.txt
