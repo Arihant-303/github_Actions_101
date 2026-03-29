@@ -9,6 +9,6 @@ jobs:
 
             - name: Executing Shell script
               run: 
-                chmod +x ./Ascii_shell.sh
-                ./Ascii_shell.sh
+                chmod +x ./Asciii_shell.sh
+                ./Asciii_shell.sh
 
