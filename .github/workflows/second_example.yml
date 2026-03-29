@@ -16,5 +16,5 @@ jobs:
             - name: Test if the file exists or not
               run: grep -i "dragon" dragon.txt
 
-            - name: Read the file
+            - name: Read the Dragon file
               run: cat dragon.txt
